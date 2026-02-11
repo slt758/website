@@ -1,0 +1,247 @@
+/* ================== ZMIENNE KOLORÓW ================== */
+
+/* DOMYŚLNY CIEMNY MOTYW */
+:root {
+    --bg: #0b0e17;
+    --bg-soft: #12182b;
+    --card: #161d36;
+    --border: #232a4a;
+
+    --text: #e7eaff;
+    --muted: #9aa3ff;
+
+    --primary: #6c7cff;
+    --primary-glow: rgba(108,124,255,.35);
+
+    --green: #2ecc71;
+    --red: #e74c3c;
+    --yellow: #f1c40f;
+}
+
+/* JASNY MOTYW */
+body.light-mode {
+    --bg: #f2f2f7;
+    --bg-soft: #ffffff;
+    --card: #ffffff;
+    --border: #e0e0e0;
+
+    --text: #1c1c1e;
+    --muted: #6e6e73;
+
+    --primary: #4c6ef5;
+    --primary-glow: rgba(76,110,245,.25);
+
+    --green: #28a745;
+    --red: #dc3545;
+    --yellow: #ffc107;
+}
+
+/* ================== PŁYNNE PRZEJŚCIE ================== */
+body, .dashboard, .box, table, input, select, button, nav, a {
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ================== BODY I OGÓLNE ================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+/* ================== NAVBAR ================== */
+nav {
+    display: flex;
+    gap: 20px;
+    padding: 15px 30px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+}
+
+nav a {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--primary-glow);
+}
+
+/* ================== DASHBOARD ================== */
+.dashboard {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard .left,
+.dashboard .right {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    flex: 1 1 300px;
+}
+
+.dashboard h2, .dashboard h3 {
+    margin-top: 0;
+}
+
+/* ================== HISTORY TABLE ================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+table th {
+    background: var(--bg-soft);
+}
+
+table tr:nth-child(even) {
+    background: var(--bg);
+}
+
+/* ================== DODAJ KUPON ================== */
+form#couponForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+form#couponForm input,
+form#couponForm select,
+form#couponForm button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+form#couponForm input:focus,
+form#couponForm select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+form#couponForm button {
+    background: var(--primary);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+form#couponForm button:hover {
+    background: var(--primary-glow);
+}
+
+/* ================== STATYSTYKI ================== */
+.stats-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stats-nav a {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+}
+
+.stats-nav a:hover {
+    background: var(--primary-glow);
+    color: #fff;
+}
+
+.stats-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stats-boxes .box {
+    flex: 1 1 200px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.stats-boxes .box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.green {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.red {
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* ================== BUTTONY I INPUTY GLOBAL ================== */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: var(--primary-glow);
+}
+
+input, select {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 8px;
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+/* ================== RESPONSYWNOŚĆ ================== */
+@media (max-width: 900px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .stats-boxes {
+        flex-direction: column;
+    }
+}
